@@ -19,6 +19,9 @@
 		03FBEBED1C4FA32C0040CB06 /* Dot.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FBEBE91C4FA32C0040CB06 /* Dot.m */; };
 		03FBEBEE1C4FA32C0040CB06 /* Radar.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FBEBEB1C4FA32C0040CB06 /* Radar.m */; };
 		03FBEBF21C4FA4330040CB06 /* RadarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FBEBF11C4FA4330040CB06 /* RadarViewController.xib */; };
+		03FBEBF41C4FCA350040CB06 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FBEBF31C4FCA350040CB06 /* User.swift */; };
+		03FBEBF61C4FD0280040CB06 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FBEBF51C4FD0280040CB06 /* AppContext.swift */; };
+		03FBEBF81C4FD0E90040CB06 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FBEBF71C4FD0E90040CB06 /* AppSettings.swift */; };
 		D3FDCB76ADF3B91392ED64C4 /* Pods_TeamTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007C8895F08FACCC66F9001E /* Pods_TeamTracking.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +47,9 @@
 		03FBEBEA1C4FA32C0040CB06 /* Radar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Radar.h; sourceTree = "<group>"; };
 		03FBEBEB1C4FA32C0040CB06 /* Radar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Radar.m; sourceTree = "<group>"; };
 		03FBEBF11C4FA4330040CB06 /* RadarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadarViewController.xib; sourceTree = "<group>"; };
+		03FBEBF31C4FCA350040CB06 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		03FBEBF51C4FD0280040CB06 /* AppContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
+		03FBEBF71C4FD0E90040CB06 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		671024FAB582CEC1CBCB8F59 /* Pods-TeamTracking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamTracking.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeamTracking/Pods-TeamTracking.release.xcconfig"; sourceTree = "<group>"; };
 		C62E7AA1DB7385FCC35DA383 /* Pods-TeamTracking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamTracking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamTracking/Pods-TeamTracking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +95,9 @@
 				03FBEBD11C4F6D490040CB06 /* Assets.xcassets */,
 				03FBEBD31C4F6D490040CB06 /* LaunchScreen.storyboard */,
 				03FBEBD61C4F6D490040CB06 /* Info.plist */,
+				03FBEBF31C4FCA350040CB06 /* User.swift */,
+				03FBEBF51C4FD0280040CB06 /* AppContext.swift */,
+				03FBEBF71C4FD0E90040CB06 /* AppSettings.swift */,
 			);
 			path = TeamTracking;
 			sourceTree = "<group>";
@@ -252,10 +261,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				03FBEBCD1C4F6D490040CB06 /* SecondViewController.swift in Sources */,
+				03FBEBF61C4FD0280040CB06 /* AppContext.swift in Sources */,
 				03FBEBE21C4FA3050040CB06 /* AngleGradientLayer.m in Sources */,
 				03FBEBC91C4F6D490040CB06 /* AppDelegate.swift in Sources */,
 				03FBEBCB1C4F6D490040CB06 /* FirstViewController.swift in Sources */,
 				03FBEBEE1C4FA32C0040CB06 /* Radar.m in Sources */,
+				03FBEBF41C4FCA350040CB06 /* User.swift in Sources */,
+				03FBEBF81C4FD0E90040CB06 /* AppSettings.swift in Sources */,
 				03FBEBEC1C4FA32C0040CB06 /* Arcs.m in Sources */,
 				03FBEBED1C4FA32C0040CB06 /* Dot.m in Sources */,
 				03FBEBE51C4FA31C0040CB06 /* RadarViewController.m in Sources */,
