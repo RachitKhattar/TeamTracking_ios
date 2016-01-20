@@ -13,4 +13,8 @@ class AppContext: NSObject {
     static let sharedInstance = AppContext()
     var users = NSMutableDictionary()
     
+    var roomNumber: Int!
+    var long: Double!
+    var lat: Double!
+    
 }
