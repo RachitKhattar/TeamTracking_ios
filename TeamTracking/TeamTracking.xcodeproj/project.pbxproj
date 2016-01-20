@@ -23,6 +23,8 @@
 		03FBEBF61C4FD0280040CB06 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FBEBF51C4FD0280040CB06 /* AppContext.swift */; };
 		03FBEBF81C4FD0E90040CB06 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FBEBF71C4FD0E90040CB06 /* AppSettings.swift */; };
 		D3FDCB76ADF3B91392ED64C4 /* Pods_TeamTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007C8895F08FACCC66F9001E /* Pods_TeamTracking.framework */; };
+		FC05721E1C4FCDA80034E0D1 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC05721C1C4FCDA80034E0D1 /* LocationTableViewCell.swift */; };
+		FC05721F1C4FCDA80034E0D1 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC05721D1C4FCDA80034E0D1 /* LocationTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		03FBEBF71C4FD0E90040CB06 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		671024FAB582CEC1CBCB8F59 /* Pods-TeamTracking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamTracking.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeamTracking/Pods-TeamTracking.release.xcconfig"; sourceTree = "<group>"; };
 		C62E7AA1DB7385FCC35DA383 /* Pods-TeamTracking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamTracking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamTracking/Pods-TeamTracking.debug.xcconfig"; sourceTree = "<group>"; };
+		FC05721C1C4FCDA80034E0D1 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		FC05721D1C4FCDA80034E0D1 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 		03FBEBC71C4F6D490040CB06 /* TeamTracking */ = {
 			isa = PBXGroup;
 			children = (
+				FC05721B1C4FCC9D0034E0D1 /* LocationTableViewCell */,
 				03FBEBDE1C4FA2B50040CB06 /* RadarController */,
 				03FBEBC81C4F6D490040CB06 /* AppDelegate.swift */,
 				03FBEBCA1C4F6D490040CB06 /* FirstViewController.swift */,
@@ -136,6 +141,15 @@
 				671024FAB582CEC1CBCB8F59 /* Pods-TeamTracking.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FC05721B1C4FCC9D0034E0D1 /* LocationTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FC05721C1C4FCDA80034E0D1 /* LocationTableViewCell.swift */,
+				FC05721D1C4FCDA80034E0D1 /* LocationTableViewCell.xib */,
+			);
+			name = LocationTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +216,7 @@
 				03FBEBF21C4FA4330040CB06 /* RadarViewController.xib in Resources */,
 				03FBEBD21C4F6D490040CB06 /* Assets.xcassets in Resources */,
 				03FBEBD01C4F6D490040CB06 /* Main.storyboard in Resources */,
+				FC05721F1C4FCDA80034E0D1 /* LocationTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +279,7 @@
 				03FBEBF61C4FD0280040CB06 /* AppContext.swift in Sources */,
 				03FBEBE21C4FA3050040CB06 /* AngleGradientLayer.m in Sources */,
 				03FBEBC91C4F6D490040CB06 /* AppDelegate.swift in Sources */,
+				FC05721E1C4FCDA80034E0D1 /* LocationTableViewCell.swift in Sources */,
 				03FBEBCB1C4F6D490040CB06 /* FirstViewController.swift in Sources */,
 				03FBEBEE1C4FA32C0040CB06 /* Radar.m in Sources */,
 				03FBEBF41C4FCA350040CB06 /* User.swift in Sources */,
