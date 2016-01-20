@@ -10,9 +10,20 @@ import UIKit
 
 class User: NSObject {
     var name = String()
-    var latitude = String()
-    var longitude = String()
-    var distance = String()
+    var latitude = Float()
+    var longitude = Float()
+    var distance = Int()
     var available = Bool()
-    var userColor = UIColor()
+    var color = UIColor()
+    
+    func compareByDistance(other : User) -> NSComparisonResult {
+        let firstDistance = self.distance
+        let otherDistance = self.distance
+        var result : NSComparisonResult = NSComparisonResult.OrderedAscending
+        if (firstDistance > otherDistance)
+        {
+            result = .OrderedDescending;
+        }
+        return result
+    }
 }
