@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
+        
+        setupUsersDictionary()
+        
         return true
     }
 
@@ -57,6 +60,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         print("Failed to register for Remote Notifications with Error:\(error.localizedDescription)")
+    }
+    
+    func setupUsersDictionary() {
+        let userOne = User()
+        userOne.name = "Parveen"
+        userOne.color = UIColor.redColor()
+        userOne.available = false
+        
+        let userTwo = User()
+        userTwo.name = "Sorabh"
+        userTwo.color = UIColor.greenColor()
+        userTwo.available = false
+        
+        let userThree = User()
+        userThree.name = "Diwakar"
+        userThree.color = UIColor.blueColor()
+        userThree.available = false
+        
+        let userFour = User()
+        userFour.name = "Rachit"
+        userFour.color = UIColor.magentaColor()
+        userFour.available = false
+        
+        AppContext.sharedInstance.users.setObject(userOne, forKey: "1")
+        AppContext.sharedInstance.users.setObject(userTwo, forKey: "2")
+        AppContext.sharedInstance.users.setObject(userThree, forKey: "3")
+        AppContext.sharedInstance.users.setObject(userFour, forKey: "4")
     }
 
 
