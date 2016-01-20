@@ -25,6 +25,8 @@
 		D3FDCB76ADF3B91392ED64C4 /* Pods_TeamTracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007C8895F08FACCC66F9001E /* Pods_TeamTracking.framework */; };
 		FC05721E1C4FCDA80034E0D1 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC05721C1C4FCDA80034E0D1 /* LocationTableViewCell.swift */; };
 		FC05721F1C4FCDA80034E0D1 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC05721D1C4FCDA80034E0D1 /* LocationTableViewCell.xib */; };
+		FC0572211C4FD3430034E0D1 /* RestServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0572201C4FD3430034E0D1 /* RestServiceHelper.swift */; };
+		FC0572231C4FD5E40034E0D1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0572221C4FD5E40034E0D1 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		C62E7AA1DB7385FCC35DA383 /* Pods-TeamTracking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamTracking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamTracking/Pods-TeamTracking.debug.xcconfig"; sourceTree = "<group>"; };
 		FC05721C1C4FCDA80034E0D1 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		FC05721D1C4FCDA80034E0D1 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		FC0572201C4FD3430034E0D1 /* RestServiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestServiceHelper.swift; sourceTree = "<group>"; };
+		FC0572221C4FD5E40034E0D1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				03FBEBF31C4FCA350040CB06 /* User.swift */,
 				03FBEBF51C4FD0280040CB06 /* AppContext.swift */,
 				03FBEBF71C4FD0E90040CB06 /* AppSettings.swift */,
+				FC0572201C4FD3430034E0D1 /* RestServiceHelper.swift */,
+				FC0572221C4FD5E40034E0D1 /* Constants.swift */,
 			);
 			path = TeamTracking;
 			sourceTree = "<group>";
@@ -286,7 +292,9 @@
 				03FBEBF81C4FD0E90040CB06 /* AppSettings.swift in Sources */,
 				03FBEBEC1C4FA32C0040CB06 /* Arcs.m in Sources */,
 				03FBEBED1C4FA32C0040CB06 /* Dot.m in Sources */,
+				FC0572231C4FD5E40034E0D1 /* Constants.swift in Sources */,
 				03FBEBE51C4FA31C0040CB06 /* RadarViewController.m in Sources */,
+				FC0572211C4FD3430034E0D1 /* RestServiceHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
