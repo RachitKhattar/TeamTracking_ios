@@ -83,10 +83,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userFour.color = UIColor.magentaColor()
         userFour.available = false
         
-        AppContext.sharedInstance.users.setObject(userOne, forKey: "1")
-        AppContext.sharedInstance.users.setObject(userTwo, forKey: "2")
-        AppContext.sharedInstance.users.setObject(userThree, forKey: "3")
-        AppContext.sharedInstance.users.setObject(userFour, forKey: "4")
+        AppContext.sharedInstance.users["parveen"] = userOne
+        AppContext.sharedInstance.users["sorabh"] = userTwo
+        AppContext.sharedInstance.users["diwakar"] = userThree
+        AppContext.sharedInstance.users["rachit"] = userFour
     }
 
 

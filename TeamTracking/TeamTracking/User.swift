@@ -10,8 +10,8 @@ import UIKit
 
 class User: NSObject {
     var name = String()
-    var latitude = Float()
-    var longitude = Float()
+    var latitude = Double()
+    var longitude = Double()
     var distance = Int()
     var available = Bool()
     var color = UIColor()

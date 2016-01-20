@@ -31,9 +31,18 @@ class RestServiceHelper: NSObject {
         }
     }
     
-    func pushAccepted() {
+    func pushAccepted(completion: (result: Bool) -> Void) {
         let url = "\(Constants.host_address)/teamtracking/rest/location/pushaccepted/\(AppContext.sharedInstance.lat)/\(AppContext.sharedInstance.long)/\(AppSettings.sharedInstance.userName)/\(AppContext.sharedInstance.roomNumber)/"
         Alamofire.request(.GET, url)
+            .responseJSON { response in
+                
+                var success = false
+                
+                if let _ = response.result.value {
+                    success = true
+                }
+                completion(result: success)
+        }
     }
     
     func checkLocation(completion: (result: Bool) -> Void) {
@@ -47,10 +56,17 @@ class RestServiceHelper: NSObject {
                 if let receivedValue = response.result.value {
                     success = true
                     
+                    let usersDict = AppContext.sharedInstance.users
+                    
                     let locationsArray = receivedValue.objectForKey("locations") as! [AnyObject]
                     
                     for receivedUser in locationsArray {
-                        receivedUser.objectForKey("")
+                        let selectUser = usersDict[receivedUser.objectForKey("userName") as! String]
+                        selectUser?.longitude = receivedUser.objectForKey("longitude") as! Double
+//                        selectUser?.longitude = (receivedUser.objectForKey("longitude") as! NSString).doubleValue
+                        selectUser?.latitude = receivedUser.objectForKey("latitude") as! Double
+                        selectUser?.available = true
+                        selectUser?.distance = receivedUser.objectForKey("distance") as! Int
                     }
                     
                 }
