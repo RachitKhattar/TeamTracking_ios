@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupUsersDictionary() {
         let userOne = User()
-        userOne.name = "Parveen"
+        userOne.name = "parveen"
         userOne.color = UIColor.redColor()
         userOne.available = true
         userOne.distance = 180
@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userOne.longitude = 2.295083
         
         let userTwo = User()
-        userTwo.name = "Sorabh"
+        userTwo.name = "sorabh"
         userTwo.color = UIColor.greenColor()
         userTwo.available = true
         userTwo.distance = 362.3
@@ -80,12 +80,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userTwo.latitude = 2.298515
         
         let userThree = User()
-        userThree.name = "Diwakar"
+        userThree.name = "diwakar"
         userThree.color = UIColor.blueColor()
         userThree.available = false
         
         let userFour = User()
-        userFour.name = "Rachit"
+        userFour.name = "rachit"
         userFour.color = UIColor.magentaColor()
         userFour.available = true
         userFour.latitude = 11
