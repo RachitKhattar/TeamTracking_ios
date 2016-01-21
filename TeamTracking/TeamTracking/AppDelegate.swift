@@ -26,6 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (launchOptions != nil){
             
             if ((launchOptions![UIApplicationLaunchOptionsRemoteNotificationKey]) != nil) {
+                let userInfo = launchOptions![UIApplicationLaunchOptionsRemoteNotificationKey] as! [NSObject : AnyObject]
+                let dict = userInfo["aps"] as! [NSObject : AnyObject]
+                let alertDict = dict["alert"] as! [NSObject : AnyObject]
+                AppSettings.sharedInstance.alertTitle = alertDict["title"] as? String
+                AppSettings.sharedInstance.alertMessage = alertDict["body"] as? String
+                AppContext.sharedInstance.roomNumber = userInfo["roomNumber"] as! Int
                 AppSettings.sharedInstance.shouldLoadAlertScreenOnLaunch = true
             }
         }
@@ -49,6 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -103,16 +111,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppContext.sharedInstance.users["sorabh"] = userTwo
         AppContext.sharedInstance.users["diwakar"] = userThree
         AppContext.sharedInstance.users["rachit"] = userFour
-    }
-
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        let dict = userInfo["aps"] as! [NSObject : AnyObject]
-        let alertDict = dict["alert"] as! [NSObject : AnyObject]
-        AppSettings.sharedInstance.alertTitle = alertDict["title"] as? String
-        AppSettings.sharedInstance.alertMessage = alertDict["body"] as? String
-        AppContext.sharedInstance.roomNumber = userInfo["roomNumber"] as! Int
-        AppSettings.sharedInstance.shouldLoadAlertScreenOnLaunch = true
-    }
-    
+    }    
 }
 
