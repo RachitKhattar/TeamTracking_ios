@@ -8,24 +8,110 @@
 
 import UIKit
 
-class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate {
     
     @IBOutlet weak var startTrackingButton: UIButton!
     @IBOutlet weak var usersTableView: UITableView!
     @IBOutlet weak var radarViewButton: UIButton!
     let otherUserKeys = NSMutableArray()
     
+    let locationManager = CLLocationManager()
+    
+    var streamTimer: NSTimer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         usersTableView.registerNib(UINib(nibName: "LocationTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationTableViewCellIdentifier")
-        self.refreshDataSource()
+//        self.refreshDataSource()
         // Do any additional setup after loading the view, typically from a nib.
         
         // On initial state
         showUsers(false)
+//        AppSettings.sharedInstance.userName = "rachit"
+//        
+//        AppContext.sharedInstance.lat = 28.11111
+//        AppContext.sharedInstance.long = 124.22222
+//        
+//        
+//        let serviceHelper = RestServiceHelper()
+//        serviceHelper.trackLocation() { (result) -> Void in
+//            if (result) {
+//                print("success")
+//                self.usr2()
+//            } else {
+//                print("failure")
+//            }
+//        }
+        
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            print("enabled")
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.requestAlwaysAuthorization()
+            //            locationManager.startUpdatingLocation()
+            locationManager.requestLocation()
+        } else {
+            print("not enabled")
+        }
+        
+        
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        streamTimer.invalidate()
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Here")
+        let userLocation:CLLocation = locations[0]
+        let long = userLocation.coordinate.longitude;
+        let lat = userLocation.coordinate.latitude;
+        
+        AppContext.sharedInstance.long = long
+        AppContext.sharedInstance.lat = lat
+        
+        print(AppContext.sharedInstance.long)
+        print(AppContext.sharedInstance.lat)
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print(error)
+    }
+    
+//    func usr2() {
+//        AppContext.sharedInstance.lat = 12.3333
+//        AppContext.sharedInstance.long = 109.4444
+//        AppSettings.sharedInstance.userName = "diwakar"
+//        
+//        
+//        let serviceHelper = RestServiceHelper()
+//        serviceHelper.pushAccepted() { (result) -> Void in
+//            if (result) {
+//                print("push success")
+//                self.checkL()
+//            } else {
+//                print("push failure")
+//            }
+//        }
+//        
+//    }
+    
+//    func checkL() {
+//        
+//        let serviceHelper = RestServiceHelper()
+//        serviceHelper.checkLocation() { (result) -> Void in
+//            if (result) {
+//                print("check success")
+//            } else {
+//                print("check failure")
+//            }
+//        }
+//    }
+    
     func refreshDataSource() {
+        otherUserKeys.removeAllObjects()
         for key in AppContext.sharedInstance.users.keys {
             let user = AppContext.sharedInstance.users["\(key)"]
             if (user!.name != AppSettings.sharedInstance.userName) {
@@ -95,8 +181,54 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     @IBAction func startTrackingButtonAction(sender: AnyObject) {
         // Make call to start tracking
         
+        
+        let serviceHelper = RestServiceHelper()
+        serviceHelper.trackLocation() { (result) -> Void in
+            if (result) {
+                print("success")
+                self.checkLoc()
+                self.showUsers(true)
+            } else {
+                print("failure")
+            }
+        }
+        
         // On success
         //showUsers(true)
+    }
+    
+    func checkLoc() {
+        
+        let serviceHelper = RestServiceHelper()
+        serviceHelper.checkLocation() { (result) -> Void in
+            if (result) {
+                print("check success")
+                self.refreshDataSource()
+                self.usersTableView.reloadData()
+
+//                self.startUpdatingLocationsInTable()
+                
+                self.streamTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "startUpdatingLocationsInTable", userInfo: nil, repeats: true)
+            } else {
+                print("check failure")
+            }
+        }
+    }
+    
+    func startUpdatingLocationsInTable() {
+        let serviceHelper = RestServiceHelper()
+        
+        serviceHelper.checkLocation() { (result) -> Void in
+            if (result) {
+                print("check success")
+                print("streaming")
+                self.refreshDataSource()
+                self.usersTableView.reloadData()
+            } else {
+                print("check failure")
+            }
+        }
+        
     }
     
     func showUsers(show : Bool) {

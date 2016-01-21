@@ -16,7 +16,7 @@ class RestServiceHelper: NSObject {
         
         Alamofire.request(.GET, url)
             .responseJSON { response in
-                
+                print(response.request)
                 var success = false
                 
                 if let receivedValue = response.result.value {
@@ -25,6 +25,8 @@ class RestServiceHelper: NSObject {
                     if (errorCode == 200) {
                         success = true
                         AppContext.sharedInstance.roomNumber = receivedValue.objectForKey("roomNumber") as! Int
+                        
+                        print(receivedValue.objectForKey("roomNumber") as! Int)
                     }
                 }
                 completion(result: success)
@@ -66,6 +68,12 @@ class RestServiceHelper: NSObject {
                         selectUser?.latitude = receivedUser.objectForKey("latitude") as! Double
                         selectUser?.available = true
                         selectUser?.distance = receivedUser.objectForKey("distance") as! Double
+                        
+                        print(selectUser?.name)
+                        print(selectUser?.longitude)
+                        print(selectUser?.latitude)
+                        print(selectUser?.distance)
+                        
                     }
                     
                 }

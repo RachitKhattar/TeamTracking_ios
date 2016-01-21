@@ -27,6 +27,7 @@
 		FC05721F1C4FCDA80034E0D1 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC05721D1C4FCDA80034E0D1 /* LocationTableViewCell.xib */; };
 		FC0572211C4FD3430034E0D1 /* RestServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0572201C4FD3430034E0D1 /* RestServiceHelper.swift */; };
 		FC0572231C4FD5E40034E0D1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0572221C4FD5E40034E0D1 /* Constants.swift */; };
+		FC0572291C509C200034E0D1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0572281C509C200034E0D1 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		FC05721D1C4FCDA80034E0D1 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
 		FC0572201C4FD3430034E0D1 /* RestServiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestServiceHelper.swift; sourceTree = "<group>"; };
 		FC0572221C4FD5E40034E0D1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FC0572281C509C200034E0D1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC0572291C509C200034E0D1 /* CoreLocation.framework in Frameworks */,
 				D3FDCB76ADF3B91392ED64C4 /* Pods_TeamTracking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +138,7 @@
 		084A98DC71A8EFC44156D667 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC0572281C509C200034E0D1 /* CoreLocation.framework */,
 				007C8895F08FACCC66F9001E /* Pods_TeamTracking.framework */,
 			);
 			name = Frameworks;
