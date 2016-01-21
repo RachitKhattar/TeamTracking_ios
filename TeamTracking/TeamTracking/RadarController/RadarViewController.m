@@ -157,14 +157,16 @@
     // At this point use your own method to load nearby users from server via network request.
     // I'm using some dummy hardcoded users data.
     // Make sure in your returned data the **sorted** by **nearest to farthest**
-    nearbyUsers = @[
-                 @{@"gender":@"female", @"lat":@48.859873, @"lng":@2.295083, @"distance":@173.1}, // *Nearest*
-                 @{@"gender":@"male",   @"lat":@48.859619, @"lng":@2.296101, @"distance":@180}, //
-                 @{@"gender":@"female", @"lat":@48.856492, @"lng":@2.298515, @"distance":@362.3}, // THE SORTING is
-                 @{@"gender":@"male",   @"lat":@48.859718, @"lng":@2.300544, @"distance":@468.6}, // Very IMPORTANT!
-                 @{@"gender":@"female", @"lat":@48.858376, @"lng":@2.287666, @"distance":@499.8}, //
-                 @{@"gender":@"male",   @"lat":@48.854643, @"lng":@2.289186, @"distance":@567.1}  // *Farthest*
-                 ];
+//    nearbyUsers = @[
+//                 @{@"gender":@"female", @"lat":@48.859873, @"lng":@2.295083, @"distance":@173.1}, // *Nearest*
+//                 @{@"gender":@"male",   @"lat":@48.859619, @"lng":@2.296101, @"distance":@180}, //
+//                 @{@"gender":@"female", @"lat":@48.856492, @"lng":@2.298515, @"distance":@362.3}, // THE SORTING is
+//                 @{@"gender":@"male",   @"lat":@48.859718, @"lng":@2.300544, @"distance":@468.6}, // Very IMPORTANT!
+//                 @{@"gender":@"female", @"lat":@48.858376, @"lng":@2.287666, @"distance":@499.8}, //
+//                 @{@"gender":@"male",   @"lat":@48.854643, @"lng":@2.289186, @"distance":@567.1}  // *Farthest*
+//                 ];
+    
+    [self sortedUsersList];
     
     // This method should be called after successful return of JSON array from your server-side service
     [self renderUsersOnRadar:nearbyUsers];
