@@ -35,8 +35,28 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     override func viewDidAppear(animated: Bool) {
-        
+        if(AppSettings.sharedInstance.shouldLoadAlertScreenOnLaunch == true){
+            AppSettings.sharedInstance.shouldLoadAlertScreenOnLaunch = false
+            displayAlert()
+        }
     }
+    
+    func displayAlert() {
+        let alertController = UIAlertController(title: AppSettings.sharedInstance.alertTitle, message: AppSettings.sharedInstance.alertMessage, preferredStyle: .Alert)
+        
+        let shareHandler = { (action:UIAlertAction!) -> Void in
+            // add command to send push response..
+        }
+        
+        let defaultAction = UIAlertAction(title: "Share", style: .Default, handler: shareHandler)
+        let secondAction =  UIAlertAction(title: "Deny", style: .Default, handler: nil)
+        alertController.addAction(secondAction)
+        alertController.addAction(defaultAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

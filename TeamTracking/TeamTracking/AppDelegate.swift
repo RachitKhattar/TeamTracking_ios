@@ -20,8 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
-        
+        AppSettings.sharedInstance.shouldLoadAlertScreenOnLaunch = false
         setupUsersDictionary()
+        
+        if (launchOptions != nil){
+            
+            if ((launchOptions![UIApplicationLaunchOptionsRemoteNotificationKey]) != nil) {
+                AppSettings.sharedInstance.shouldLoadAlertScreenOnLaunch = true
+            }
+        }
         
         return true
     }
@@ -98,6 +105,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppContext.sharedInstance.users["rachit"] = userFour
     }
 
-
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        let dict = userInfo["aps"] as! [NSObject : AnyObject]
+        let alertDict = dict["alert"] as! [NSObject : AnyObject]
+        AppSettings.sharedInstance.alertTitle = alertDict["title"] as? String
+        AppSettings.sharedInstance.alertMessage = alertDict["body"] as? String
+        AppContext.sharedInstance.roomNumber = userInfo["roomNumber"] as! Int
+        AppSettings.sharedInstance.shouldLoadAlertScreenOnLaunch = true
+    }
+    
 }
 
