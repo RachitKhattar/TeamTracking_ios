@@ -50,8 +50,8 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.requestAlwaysAuthorization()
-            //            locationManager.startUpdatingLocation()
-            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
+//            locationManager.requestLocation()
         } else {
             print("not enabled")
         }
@@ -61,6 +61,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     override func viewDidDisappear(animated: Bool) {
 //        streamTimer.invalidate()
+        locationManager.stopUpdatingLocation()
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

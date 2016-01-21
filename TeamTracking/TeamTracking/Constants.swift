@@ -9,5 +9,5 @@
 import Foundation
 
 struct Constants {
-    static let host_address = "http://10.4.3.167:8083"
+    static let host_address = "http://10.175.13.9:8083"
 }

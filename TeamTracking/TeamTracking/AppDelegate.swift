@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-//        AppSettings.sharedInstance.userName = "diwakar"
+        AppSettings.sharedInstance.userName = "parveen"
         // Override point for customization after application launch.
         // Register for Remote Notifications
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
