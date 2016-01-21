@@ -66,7 +66,7 @@ class RestServiceHelper: NSObject {
 //                        selectUser?.longitude = (receivedUser.objectForKey("longitude") as! NSString).doubleValue
                         selectUser?.latitude = receivedUser.objectForKey("latitude") as! Double
                         selectUser?.available = true
-                        selectUser?.distance = receivedUser.objectForKey("distance") as! Int
+                        selectUser?.distance = receivedUser.objectForKey("distance") as! Double
                     }
                     
                 }

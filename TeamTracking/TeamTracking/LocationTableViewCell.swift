@@ -9,6 +9,17 @@
 import UIKit
 
 class LocationTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var userDistanceLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userColorView: UIView!
+    var user : User! {
+        didSet {
+            userDistanceLabel.text = self.user.available ? "\(self.user.distance)" : "?"
+            userNameLabel.text = self.user.name
+            userColorView.backgroundColor = self.user.color
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

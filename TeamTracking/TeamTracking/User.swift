@@ -12,7 +12,7 @@ class User: NSObject {
     var name = String()
     var latitude = Double()
     var longitude = Double()
-    var distance = Int()
+    var distance = Double()
     var available = Bool()
     var color = UIColor()
     

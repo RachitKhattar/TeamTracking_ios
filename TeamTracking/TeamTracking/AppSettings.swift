@@ -15,7 +15,7 @@ class AppSettings: NSObject {
     override init() {
         super.init()
         NSUserDefaults.standardUserDefaults().registerDefaults([
-            "userName": "diwakar"
+            "userName": "Rachit"
             ])
     }
     

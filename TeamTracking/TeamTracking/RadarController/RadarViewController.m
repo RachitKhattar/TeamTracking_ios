@@ -28,6 +28,7 @@
 #import "Arcs.h"
 #import "Radar.h"
 #import "Dot.h"
+#import "TeamTracking-Swift.h"
 
 #define degreesToRadians(x) (M_PI * x / 180.0)
 #define radiandsToDegrees(x) (x * 180.0 / M_PI)
@@ -106,41 +107,32 @@
     CLLocationCoordinate2D myLoc = { 48.858370, 2.294481 };
     
     // the last user in the nearbyUsers list is the farthest
-    float maxDistance = [[[users lastObject] valueForKey:@"distance"] floatValue];
-    float minDistance = [[[users firstObject] valueForKey:@"distance"] floatValue];
+    User *lastUser = [users lastObject];
+    float maxDistance = lastUser.distance;
+    User *firsUser = [users firstObject];
+    float minDistance = firsUser.distance;
     
     distanceSlider.minimumValue = minDistance;
     distanceSlider.maximumValue = maxDistance;
     distanceSlider.value = maxDistance;
     
-    // add users dots
-    for (NSDictionary *user in users) {
-        
+    for (User *user in users) {
         Dot *dot = [[Dot alloc] initWithFrame:CGRectMake(0, 0, 32.0, 32.0)];
         
-        dot.layer.contentsScale = [UIScreen mainScreen].scale; // Retina
-        
-        // male > blue, female > green
-        if ([[user valueForKey:@"gender"] isEqualToString:@"female"]) {
-            // pink
-            dot.color = [UIColor colorWithRed:234.0/255.0 green:69.0/255.0 blue:130.0/255.0 alpha:1.0];
-        } else {
-            // cyan
-            dot.color = [UIColor colorWithRed:39.0/255.0 green:185.0/255.0 blue:173.0/255.0 alpha:1.0];
-        }
-        
-        CLLocationCoordinate2D userLoc = { [[user valueForKey:@"lat"] floatValue], [[user valueForKey:@"lng"] floatValue] };
+        dot.layer.contentsScale = [UIScreen mainScreen].scale;
+        dot.color = user.color;
+        CLLocationCoordinate2D userLoc = { user.latitude, user.longitude };
         
         float bearing = [self getHeadingForDirectionFromCoordinate:myLoc toCoordinate:userLoc];
         dot.bearing = [NSNumber numberWithFloat:bearing];
         
-        float d = [[user valueForKey:@"distance"] floatValue];
+        float d = user.distance;
         float distance = MAX(35, d * 132.0 / maxDistance); // 140 = radius of the radar circle, so the farthest user will be on the perimiter of radar circle
         
-        dot.distance = [NSNumber numberWithFloat:distance]; // relative distance
+        dot.distance = [NSNumber numberWithFloat:distance];
         
         dot.userDistance = [NSNumber numberWithFloat:d];
-        dot.userProfile = user;
+        dot.userProfile = nil;
         dot.zoomEnabled = NO;
         dot.userInteractionEnabled = NO;
         [self rotateDot:dot fromBearing:0 toBearing:bearing atDistance:distance];
@@ -177,6 +169,22 @@
     // This method should be called after successful return of JSON array from your server-side service
     [self renderUsersOnRadar:nearbyUsers];
 }
+
+- (void)sortedUsersList {
+    
+    NSMutableArray* unsortedNearbyUsers = [NSMutableArray array];
+    
+    for (NSString *key in AppContext.sharedInstance.users.allKeys) {
+        User *user = [AppContext.sharedInstance.users objectForKey:key];
+        if (user.name != AppSettings.sharedInstance.userName && user.available) {
+            [unsortedNearbyUsers addObject:user];
+        }
+    }
+    
+    nearbyUsers = [NSArray arrayWithArray:[unsortedNearbyUsers sortedArrayUsingSelector:@selector(compareByDistance:)]];
+}
+
+
 
 #pragma mark - Spin the radar view continuously
 -(void)spinRadar{

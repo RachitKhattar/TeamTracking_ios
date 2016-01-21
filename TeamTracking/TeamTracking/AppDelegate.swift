@@ -66,12 +66,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userOne = User()
         userOne.name = "Parveen"
         userOne.color = UIColor.redColor()
-        userOne.available = false
+        userOne.available = true
+        userOne.distance = 180
+        userOne.latitude = 48.859873
+        userOne.longitude = 2.295083
         
         let userTwo = User()
         userTwo.name = "Sorabh"
         userTwo.color = UIColor.greenColor()
-        userTwo.available = false
+        userTwo.available = true
+        userTwo.distance = 362.3
+        userTwo.longitude = 48.856492
+        userTwo.latitude = 2.298515
         
         let userThree = User()
         userThree.name = "Diwakar"
@@ -81,7 +87,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userFour = User()
         userFour.name = "Rachit"
         userFour.color = UIColor.magentaColor()
-        userFour.available = false
+        userFour.available = true
+        userFour.latitude = 11
+        userFour.longitude = 17
+        userFour.distance = 0
         
         AppContext.sharedInstance.users["parveen"] = userOne
         AppContext.sharedInstance.users["sorabh"] = userTwo
