@@ -108,9 +108,9 @@
     
     // the last user in the nearbyUsers list is the farthest
     User *lastUser = [users lastObject];
-    float maxDistance = lastUser.distance;
+    float maxDistance = (float) lastUser.distance;
     User *firsUser = [users firstObject];
-    float minDistance = firsUser.distance;
+    float minDistance = (float) firsUser.distance;
     
     distanceSlider.minimumValue = minDistance;
     distanceSlider.maximumValue = maxDistance;
@@ -126,7 +126,7 @@
         float bearing = [self getHeadingForDirectionFromCoordinate:myLoc toCoordinate:userLoc];
         dot.bearing = [NSNumber numberWithFloat:bearing];
         
-        float d = user.distance;
+        float d = (float) user.distance;
         float distance = MAX(35, d * 132.0 / maxDistance); // 140 = radius of the radar circle, so the farthest user will be on the perimiter of radar circle
         
         dot.distance = [NSNumber numberWithFloat:distance];
@@ -402,17 +402,17 @@
 #pragma mark - Slider
 - (IBAction)sliderValueChange:(UISlider *)sender {
     float new_distance = [sender value];
-    float distanceFilter = 0;
+    double distanceFilter = 0;
     for (int i = 0; i < [nearbyUsers count]; i++) {
-        NSDictionary *user = nearbyUsers[i];
+        User *user = nearbyUsers[i];
         
-        float distance = [[user valueForKey:@"distance"] floatValue];
+        float distance = (float) user.distance;
         float nextDistance = distance;
         //NSLog(@"distance %f <--->nextDistance %f ===>distanceFilter %f",distance, nextDistance, distanceFilter);
-        
+    
         if (i< [nearbyUsers count]-1) {
-            NSDictionary *nextUser = nearbyUsers[i+1];
-            nextDistance = [[nextUser valueForKey:@"distance"] floatValue];
+            User *nextUser = nearbyUsers[i+1];
+            nextDistance = (float) nextUser.distance;
         }
         
         if (distance <= new_distance && nextDistance >= new_distance) {

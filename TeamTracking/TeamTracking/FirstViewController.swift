@@ -10,7 +10,9 @@ import UIKit
 
 class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    @IBOutlet weak var startTrackingButton: UIButton!
     @IBOutlet weak var usersTableView: UITableView!
+    @IBOutlet weak var radarViewButton: UIButton!
     let otherUserKeys = NSMutableArray()
     
     override func viewDidLoad() {
@@ -18,6 +20,9 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         usersTableView.registerNib(UINib(nibName: "LocationTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationTableViewCellIdentifier")
         self.refreshDataSource()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // On initial state
+        showUsers(false)
     }
     
     func refreshDataSource() {
@@ -44,8 +49,9 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "RadarViewController", bundle: bundle)
         let monitorViewController = nib.instantiateWithOwner(self, options: nil)[0] as! UIViewController
-        let monitorViewControllerWithNavBar = UINavigationController(rootViewController: monitorViewController)
-        self.navigationController!.presentViewController(monitorViewControllerWithNavBar, animated: true, completion: nil)
+//        let monitorViewControllerWithNavBar = UINavigationController(rootViewController: monitorViewController)
+        self.navigationController!.pushViewController(monitorViewController, animated: true)
+//        self.navigationController!.presentViewController(monitorViewControllerWithNavBar, animated: true, completion: nil)
         
     }
     
@@ -64,6 +70,19 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let user = AppContext.sharedInstance.users["\(key)"]
         cell.user = user
         return cell
+    }
+    
+    @IBAction func startTrackingButtonAction(sender: AnyObject) {
+        // Make call to start tracking
+        
+        // On success
+        //showUsers(true)
+    }
+    
+    func showUsers(show : Bool) {
+        self.usersTableView.hidden = !show
+        self.radarViewButton.hidden = !show
+        self.startTrackingButton.hidden = show
     }
 }
 

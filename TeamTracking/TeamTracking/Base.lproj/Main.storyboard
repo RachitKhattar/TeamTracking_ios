@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -19,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ptf-OS-DBU">
-                                <rect key="frame" x="0.0" y="64" width="600" height="425"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="425"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -34,20 +33,38 @@
                                     <action selector="openRadarView:" destination="9pv-A4-QxB" eventType="touchUpInside" id="zAW-cp-YwB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kx0-le-mvA">
+                                <rect key="frame" x="183" y="285" width="233" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4vg-K8-2Re"/>
+                                    <constraint firstAttribute="width" constant="233" id="9yf-zB-Nfp"/>
+                                </constraints>
+                                <state key="normal" title="Start Tracking My Team">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startTrackingButtonAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="lkj-Mb-hnN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ptf-OS-DBU" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="8o4-wq-6e4"/>
+                            <constraint firstItem="ptf-OS-DBU" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-64" id="8o4-wq-6e4"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="qV1-I9-jzz" secondAttribute="bottom" constant="22" id="J7y-VC-fhJ"/>
                             <constraint firstItem="qV1-I9-jzz" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="M9q-CW-c2N"/>
-                            <constraint firstItem="qV1-I9-jzz" firstAttribute="top" secondItem="ptf-OS-DBU" secondAttribute="bottom" constant="10" id="PSk-zU-Dpa"/>
+                            <constraint firstItem="qV1-I9-jzz" firstAttribute="top" secondItem="ptf-OS-DBU" secondAttribute="bottom" constant="74" id="PSk-zU-Dpa"/>
+                            <constraint firstItem="kx0-le-mvA" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="dSJ-MX-P0e"/>
                             <constraint firstItem="ptf-OS-DBU" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="ela-3a-l4r"/>
+                            <constraint firstItem="kx0-le-mvA" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="iR2-6B-JZ5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ptf-OS-DBU" secondAttribute="trailing" constant="-20" id="srB-Yh-Fze"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Team Locations" id="m7y-ke-k2o"/>
                     <connections>
+                        <outlet property="radarViewButton" destination="qV1-I9-jzz" id="oCO-rm-atA"/>
+                        <outlet property="startTrackingButton" destination="kx0-le-mvA" id="blN-Q4-TzP"/>
                         <outlet property="usersTableView" destination="ptf-OS-DBU" id="Ipj-pC-jkp"/>
                     </connections>
                 </viewController>

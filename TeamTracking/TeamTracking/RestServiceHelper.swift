@@ -63,7 +63,6 @@ class RestServiceHelper: NSObject {
                     for receivedUser in locationsArray {
                         let selectUser = usersDict[receivedUser.objectForKey("userName") as! String]
                         selectUser?.longitude = receivedUser.objectForKey("longitude") as! Double
-//                        selectUser?.longitude = (receivedUser.objectForKey("longitude") as! NSString).doubleValue
                         selectUser?.latitude = receivedUser.objectForKey("latitude") as! Double
                         selectUser?.available = true
                         selectUser?.distance = receivedUser.objectForKey("distance") as! Double

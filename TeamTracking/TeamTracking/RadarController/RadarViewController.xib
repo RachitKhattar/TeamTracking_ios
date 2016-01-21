@@ -28,7 +28,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.3529411764705882" green="0.32156862745098036" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="280" id="2C1-Pg-Zh8"/>
                             <constraint firstItem="bsN-6a-2g4" firstAttribute="centerY" secondItem="7cv-jS-9aZ" secondAttribute="centerY" id="PNA-mt-8zr"/>
@@ -41,12 +41,15 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="251" id="8Bs-WX-whe"/>
                         </constraints>
+                        <color key="minimumTrackTintColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="maximumTrackTintColor" red="0.41568627450980389" green="0.34901960784313724" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="thumbTintColor" red="1" green="0.85490196080000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <action selector="sliderValueChange:" destination="1lk-vw-Tn9" eventType="valueChanged" id="ZzG-Dv-Ahb"/>
                         </connections>
                     </slider>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" red="0.3529411764705882" green="0.32156862745098036" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="bki-90-gUJ" firstAttribute="top" secondItem="4Bh-i7-e7I" secondAttribute="bottom" constant="50" id="0LT-XA-GW3"/>
                     <constraint firstItem="7cv-jS-9aZ" firstAttribute="centerY" secondItem="6uv-Ge-uWs" secondAttribute="centerY" id="GNX-zk-VXy"/>
