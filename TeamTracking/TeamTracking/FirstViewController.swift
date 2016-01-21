@@ -60,7 +60,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     override func viewDidDisappear(animated: Bool) {
-        streamTimer.invalidate()
+//        streamTimer.invalidate()
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -132,6 +132,18 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         let shareHandler = { (action:UIAlertAction!) -> Void in
             // add command to send push response..
+            
+            let serviceHelper = RestServiceHelper()
+            
+            serviceHelper.pushAccepted() { (result) -> Void in
+                if (result) {
+                    print("accept success")
+                    self.checkLoc()
+                    self.showUsers(true)
+                } else {
+                    print("accepts failure")
+                }
+            }
         }
         
         let defaultAction = UIAlertAction(title: "Share", style: .Default, handler: shareHandler)

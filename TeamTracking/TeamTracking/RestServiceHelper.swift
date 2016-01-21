@@ -81,4 +81,18 @@ class RestServiceHelper: NSObject {
         }
     }
     
+    func broadcastMessage(msg: String, completion: (result: Bool) -> Void) {
+        let url = "\(Constants.host_address)/teamtracking/rest/location/broadcast/Come%20for%20meeting/\(AppSettings.sharedInstance.userName)/"
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                
+                var success = false
+                
+                if let _ = response.result.value {
+                    success = true
+                }
+                completion(result: success)
+        }
+    }
+    
 }

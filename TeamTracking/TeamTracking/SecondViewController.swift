@@ -12,7 +12,7 @@ class SecondViewController: UIViewController,UIPickerViewDataSource,UIPickerView
     
     let pickerData = ["Come for meeting","Let's Gather in next 15 minutes","I will be little late today","Stuck in traffic","Not coming today","Got flat tyre","Out of office"]
     
-    var selectedMessage = String()
+    var selectedMessage : String?
     
     @IBOutlet weak var messagesPickerView: UIPickerView!
     override func viewDidLoad() {
@@ -38,13 +38,21 @@ class SecondViewController: UIViewController,UIPickerViewDataSource,UIPickerView
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedMessage = pickerData[row]
+        selectedMessage = pickerData[row] as String
     }
     
     @IBOutlet weak var broadcastMessageButton: UIButton!
     @IBAction func broadcastButtonAction(sender: AnyObject) {
         // call to broadcast message
         
+        let serviceHelper = RestServiceHelper()
+        serviceHelper.broadcastMessage("Come for meeting") { (result) -> Void in
+            if (result) {
+                print("broadcast success")
+            } else {
+                print("broadcast failure")
+            }
+        }
         
     }
 }
